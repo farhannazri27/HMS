@@ -184,7 +184,8 @@ public class WhRequestController {
                 FileWriter fileWriter = null;
 
                 try {
-                    fileWriter = new FileWriter("C:\\test.csv");
+                      String username = System.getProperty("user.name");
+                    fileWriter = new FileWriter("C:\\Users\\" + username + "\\Documents\\HMS\\test.csv");
 
                     //Adding the header
                     fileWriter.append(HEADER);

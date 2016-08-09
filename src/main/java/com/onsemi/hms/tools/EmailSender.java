@@ -11,6 +11,7 @@ import javax.servlet.ServletContext;
 import com.onsemi.hms.dao.EmailDAO;
 import com.onsemi.hms.model.Email;
 import com.onsemi.hms.model.User;
+import java.io.FileWriter;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
@@ -143,7 +144,8 @@ public class EmailSender extends SpringBeanAutowiringSupport {
                     htmlEmail.setSSLOnConnect(true);
                     htmlEmail.setDebug(true);
 
-                    File file = new File("C:\\test.csv");
+                    String username = System.getProperty("user.name");
+                    File file = new File("C:\\Users\\" + username + "\\Documents\\HMS\\test.csv");
 
                     htmlEmail.setFrom(email.getSender());
                     htmlEmail.addTo(to);

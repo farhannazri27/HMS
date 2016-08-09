@@ -16,12 +16,12 @@ import org.apache.commons.lang3.StringUtils;
 public class ModelGenerator {
 
     public static void main(String[] args) {
-        String table = "spml_student_photo";
+        String table = "hms_wh_retrieval_list";
         String sql = "SELECT * FROM " + table + " LIMIT 1";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = null;
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms", "root", "root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms", "root", "ONsemi123");
             if (conn != null) {
                 String className = className(table);
                 System.out.println("ClassName: " + className);
@@ -44,7 +44,7 @@ public class ModelGenerator {
                             + "\t}\n\n";
                 }
                 classFileContent += "}";
-                String fileLocation = "E:\\";
+                String fileLocation = "C:\\";
                 FileUtils.writeStringToFile(new File(fileLocation + className + ".java"), classFileContent);
                 rs.close();
                 ps.close();
